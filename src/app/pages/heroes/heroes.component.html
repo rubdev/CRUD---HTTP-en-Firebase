@@ -1,1 +1,53 @@
-<p>heroes works!</p>
+<div class="row">
+    <div class="col mt-5">
+        <h1>Listado de heroes</h1>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-right mt-1">
+        <button routerLink="/heroe/nuevo"
+                class="btn btn-success">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Agregar
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col mt-5">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Poder</th>
+                <th scope="col">Está vivo</th>
+                <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Alerta cargando -->
+<div class="alert alert-info text-center" role="alert">
+    <h4 class="alert-heading mt-2">Cargando heroes</h4>
+    <p>
+        <i class="fas fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+</div>
+<!-- Alerta no hay registros -->
+<div class="alert alert-warning text-center" role="alert">
+    <h4 class="alert-heading mt-2">No existe ningún heroe</h4>
+    <p>
+        <i class="fas fa-exclamation-circle fa-2x"></i>
+    </p>
+</div>
