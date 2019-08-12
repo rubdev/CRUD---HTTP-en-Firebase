@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HeroeModel } from 'src/app/models/heroe.model';
 import { HeroesService } from 'src/app/services/heroes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-heroe',
@@ -24,12 +25,17 @@ export class HeroeComponent implements OnInit {
     }
     // console.log( f );
     // console.log( this.heroe );
-
-    this.heroesService.crearHeroe( this.heroe )
-                      .subscribe( respuesta => {
-                        console.log( respuesta );
-                      });
-
+    if ( this.heroe.id ) {
+      this.heroesService.actualizarHeroe( this.heroe )
+                        .subscribe ( respuesta => {
+                          console.log( respuesta );
+                        });
+    } else {
+      this.heroesService.crearHeroe( this.heroe )
+                        .subscribe( respuesta => {
+                          console.log( respuesta );
+                        });
+    }
   }
 
 }
