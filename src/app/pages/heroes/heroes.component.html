@@ -18,20 +18,26 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Poder</th>
-                <th scope="col">Está vivo</th>
-                <th scope="col">Opciones</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Poder</th>
+                    <th scope="col">Está vivo</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td></td>
+                <tr *ngFor="let heroe of heroes; let i = index">
+                    <th scope="row">{{ i+1 }}</th>
+                    <td>{{ heroe.nombre }}</td>
+                    <td>{{ heroe.poder }}</td>
+                    <td>
+                        <label *ngIf="heroe.vivo" class="badge badge-success">Vivo</label>
+                        <label *ngIf="!heroe.vivo" class="badge badge-danger">Muerto</label>
+                    </td>
+                    <td>
+                        <button [routerLink]="['/heroe', heroe.id]" class="btn btn-info mr-3"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -38,12 +38,21 @@ export class HeroesService {
                     );
   }
 
+  getHeroe( id: string ) {
+    return this.http.get(`${ this.url }/heroes/${ id }.json`);
+  }
+
   private toArray( heroesObj: object ) {
     const heroes: HeroeModel[] = [];
     if ( heroesObj === null ) {
       return [];
     }
-    return 
+    Object.keys( heroesObj ).forEach( key => {
+      const heroe: HeroeModel = heroesObj[ key ];
+      heroe.id = key;
+      heroes.push( heroe );
+    });
+    return heroes;
   }
 
 }
