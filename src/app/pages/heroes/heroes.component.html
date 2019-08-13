@@ -36,7 +36,7 @@
                     </td>
                     <td>
                         <button [routerLink]="['/heroe', heroe.id]" class="btn btn-info mr-3"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button (click)="borrarHeroe( heroe, i )" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </td>
                 </tr>
             </tbody>
